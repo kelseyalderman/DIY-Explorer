@@ -57,22 +57,30 @@ db.once("open", async () => {
     );
   }
 
-  // create saved projects
-  //   for (let i = 0; i < 100; i += 1) {
-  //     const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-  //     const { _id: userId } = createdUsers.ops[randomUserIndex];
+  //  create saved projects
+  for (let i = 0; i < 100; i += 1) {
+    const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
+    const { _id: userId } = createdUsers.ops[randomUserIndex];
 
-  //     let friendId = userId;
+    const randomProjectIndex = Math.floor(
+      Math.random() * createdProjects.length
+    );
+    const { _id: projectId } = createdProjects[randomProjectIndex];
 
-  //     while (friendId === userId) {
-  //       const randomUserIndex = Math.floor(
-  //         Math.random() * createdUsers.ops.length
-  //       );
-  //       friendId = createdUsers.ops[randomUserIndex];
-  //     }
+    let savedProjectId = projectId;
 
-  //     await User.updateOne({ _id: userId }, { $addToSet: { friends: friendId } });
-  //   }
+    while (savedProjectId === projectId) {
+      const randomProjectIndex = Math.floor(
+        Math.random() * createdProjects.ops.length
+      );
+      savedProjectId = createdProjects.ops[randomProjectIndex];
+    }
+
+    await User.updateOne(
+      { _id: userId },
+      { $addToSet: { savedProjects: savedProjectId } }
+    );
+  }
 
   console.log("all done!");
   process.exit(0);
