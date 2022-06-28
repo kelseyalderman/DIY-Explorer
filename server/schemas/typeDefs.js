@@ -25,4 +25,20 @@ const typeDefs = gql `
     token: ID!
     user: User
   }
+  type Query {
+    me: User
+    users: [User]
+    user(username: String!): User
+    projects(username: String): [Project]
+    project(_id: ID!): Project
+  }
+  type Mutation {
+    login(email: String!, password: String!): Auth
+    addUser(username: String!, email: String!, password: String!): Auth
+    addProject(projectText: String!): Project
+    addComment(projectId: ID!, reactionBody: String!): Project
+    addSavedProject(projectId: ID!): Project
+  }
 `;
+
+module.exports = typeDefs;
