@@ -40,4 +40,68 @@ const resolvers = {
             return Project.findOne({ _id });
         }
     },
+    Mutation: {
+        // add a user
+        addUser: async (parent, args) => {
+            const user = await User.create(args);
+            const token = signToken(user);
+
+            return { token, user };
+        },
+        // log in
+        login: async (parent, { email, password }) => {
+            const user = await User.findOne({ email });
+
+            if (!user) {
+                throw new AuthenticationError('Incorrect credentials.');
+            }
+            const correctPw = await user.isCorrectPassword(password);
+
+            if (!correctPw) {
+                throw new AuthenticationError('Incorrect credentials.');
+            }
+            const token = signToken(user);
+            return { token, user };
+        },
+        // add a project
+        addProject: async (parent, args, context) => {
+            if (context.user) {
+                const project = await Project.create({...args, username: context.user.username});
+
+                await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $push: { projects: project._id }},
+                    { new: true }
+                );
+                return project;
+            }
+            throw new AuthenticationError('You need to be logged in.');
+        },
+        // add a comment
+        addComment: async (parent, { projectId, reactionBody }, context) => {
+            if (context.user) {
+                const updatedProject = await Project.findOneAndUpdate(
+                    { _id: projectId },
+                    { $push: { comments: { reactionBody, username: context.user.username }}},
+                    { new: true, runValidators: true }
+                )
+                return updatedProject;
+            }
+            throw new AuthenticationError('You need to be logged in.');
+        },
+        // save a project
+        addSavedProject: async (parent, { projectId }, context) => {
+            if (context.user) {
+                const updatedUser = await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $addToSet: { savedProjects: projectId }},
+                    { new: true }
+                ).populate('savedProjects');
+                return updatedUser;
+            }
+            throw new AuthenticationError('You need to be logged in.');
+        }
+    }
 };
+
+module.exports = resolvers;
