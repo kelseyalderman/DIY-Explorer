@@ -13,6 +13,7 @@ const typeDefs = gql `
     projectText: String
     createdAt: String
     username: String
+    commentCount: Int
     comments: [Comment]
   },
   type Comment {
