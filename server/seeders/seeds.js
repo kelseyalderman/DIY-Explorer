@@ -71,9 +71,9 @@ db.once("open", async () => {
 
     while (savedProjectId === projectId) {
       const randomProjectIndex = Math.floor(
-        Math.random() * createdProjects.ops.length
+        Math.random() * createdProjects.length
       );
-      savedProjectId = createdProjects.ops[randomProjectIndex];
+      savedProjectId = createdProjects.randomProjectIndex;
     }
 
     await User.updateOne(
