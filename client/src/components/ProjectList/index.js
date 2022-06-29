@@ -20,10 +20,10 @@ const ProjectList = ({ projects, title }) => {
               >
                 {project.username}
               </Link>{" "}
-              thought on {project.createdAt}
+              project on {project.createdAt}
             </p>
             <div className="card-body">
-              <Link to={`/thought/${project._id}`}>
+              <Link to={`/project/${project._id}`}>
                 <p>{project.projectText}</p>
                 <p className="mb-0">
                   Reactions: {project.commentCount} || Click to{" "}
