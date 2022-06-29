@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const SavedProjectList = ({ username, savedProjects }) => {
+const SavedProjectsList = ({ username, savedProjects }) => {
   if (!savedProjects || !savedProjects.length) {
     return (
       <p className="bg-dark text-light p-3">
@@ -22,4 +22,4 @@ const SavedProjectList = ({ username, savedProjects }) => {
   );
 };
 
-export default SavedProjectList;
+export default SavedProjectsList;

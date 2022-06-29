@@ -1,6 +1,6 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
-export const QUERY_ME = gql `
+export const QUERY_ME = gql`
   {
     me {
       _id
@@ -28,7 +28,23 @@ export const QUERY_ME = gql `
   }
 `;
 
-export const QUERY_USER = gql `
+export const QUERY_ME_BASIC = gql`
+  {
+    me {
+      _id
+      username
+      email
+      savedProjects {
+        _id
+        projectText
+        createdAt
+        username
+      }
+    }
+  }
+`;
+
+export const QUERY_USER = gql`
   query user($username: String!) {
     user(username: $username) {
       _id
@@ -50,38 +66,38 @@ export const QUERY_USER = gql `
   }
 `;
 
-export const QUERY_PROJECTS = gql `
+export const QUERY_PROJECTS = gql`
   query projects($username: String) {
     projects(username: $username) {
+      _id
+      projectText
+      createdAt
+      username
+      commentCount
+      comments {
         _id
-        projectText
+        commentBody
         createdAt
         username
-        commentCount
-        comments {
-          _id
-          commentBody
-          createdAt
-          username
-        }
+      }
     }
   }
 `;
 
-export const QUERY_PROJECT = gql `
+export const QUERY_PROJECT = gql`
   query project($id: ID!) {
     project(_id: $id) {
+      _id
+      projectText
+      createdAt
+      username
+      commentCount
+      comments {
         _id
-        projectText
+        commentBody
         createdAt
         username
-        commentCount
-        comments {
-          _id
-          commentBody
-          createdAt
-          username
-        }
+      }
     }
   }
 `;
