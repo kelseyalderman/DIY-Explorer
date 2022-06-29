@@ -14,7 +14,7 @@ export const QUERY_ME = gql `
         comments {
           _id
           createdAt
-          reactionBody
+          commentBody
           username
         }
       }
@@ -60,7 +60,7 @@ export const QUERY_PROJECTS = gql `
         commentCount
         comments {
           _id
-          reactionBody
+          commentBody
           createdAt
           username
         }
@@ -78,7 +78,7 @@ export const QUERY_PROJECT = gql `
         commentCount
         comments {
           _id
-          reactionBody
+          commentBody
           createdAt
           username
         }

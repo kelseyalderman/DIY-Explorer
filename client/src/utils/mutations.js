@@ -56,13 +56,13 @@ export const ADD_SAVED_PROJECT = gql `
 `;
 
 export const ADD_COMMENT = gql `
-  mutation addComment($projectId: ID!, $reactionBody: String!) {
-    addComment(projectId: $projectId, reactionBody: $reactionBody) {
+  mutation addComment($projectId: ID!, $commentBody: String!) {
+    addComment(projectId: $projectId, commentBody: $commentBody) {
       _id
       commentCount
       comments {
         _id
-        reactionBody
+        commentBody
         createdAt
         username
       }

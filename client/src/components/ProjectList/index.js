@@ -26,7 +26,7 @@ const ProjectList = ({ projects, title }) => {
               <Link to={`/project/${project._id}`}>
                 <p>{project.projectText}</p>
                 <p className="mb-0">
-                  Reactions: {project.commentCount} || Click to{" "}
+                  Comments: {project.commentCount} || Click to{" "}
                   {project.commentCount ? "see" : "start"} the discussion!
                 </p>
               </Link>
