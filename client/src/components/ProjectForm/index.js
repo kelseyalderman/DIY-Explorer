@@ -8,12 +8,16 @@ const ProjectForm = () => {
   const [characterCount, setCharacterCount] = useState(0);
   const [addProject, { error }] = useMutation(ADD_PROJECT, {
     update(cache, { data: { addProject } }) {
-      // update me array's cache
-      const { me } = cache.readQuery({ query: QUERY_ME });
-      cache.writeQuery({
-        query: QUERY_ME,
-        data: { me: { ...me, projects: [...me.projects, addProject] } },
-      });
+      try {
+        // update me array's cache
+        const { me } = cache.readQuery({ query: QUERY_ME });
+        cache.writeQuery({
+          query: QUERY_ME,
+          data: { me: { ...me, projects: [...me.projects, addProject] } },
+        });
+      } catch (e) {
+        console.log(e);
+      }
 
       // could potentially not exist yet, so wrap in a try/catch
       try {
@@ -66,13 +70,13 @@ const ProjectForm = () => {
         onSubmit={handleFormSubmit}
       >
         <textarea
-          placeholder="New DIY project"
+          placeholder="Here's a new project..."
           value={projectText}
           className="form-input col-12 col-md-9"
           onChange={handleChange}
         ></textarea>
         <button className="btn col-12 col-md-3" type="submit">
-          Save Project
+          Submit
         </button>
       </form>
     </div>

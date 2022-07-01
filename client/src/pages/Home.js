@@ -3,7 +3,7 @@ import { useQuery } from "@apollo/client";
 import { QUERY_PROJECTS, QUERY_ME_BASIC } from "../utils/queries";
 import ProjectList from "../components/ProjectList";
 import Auth from "../utils/auth";
-import SavedProjectsList from "../components/SavedProjects";
+import SavedProjectsList from "../components/SavedProjectsList";
 import ProjectForm from "../components/ProjectForm";
 
 const Home = () => {
@@ -34,10 +34,7 @@ const Home = () => {
         </div>
         {loggedIn && userData ? (
           <div className="col-12 col-lg-3 mb-3">
-            <SavedProjectsList
-              username={userData.me.username}
-              savedProjects={userData.me.savedProjects}
-            />
+            <SavedProjectsList savedProjects={userData.me.savedProjects} />
           </div>
         ) : null}
       </div>

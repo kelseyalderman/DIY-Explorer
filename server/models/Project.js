@@ -6,7 +6,7 @@ const projectSchema = new Schema(
   {
     projectText: {
       type: String,
-      required: "You need to leave instructions!",
+      required: "You need to leave a thought!",
       minlength: 1,
     },
     createdAt: {
