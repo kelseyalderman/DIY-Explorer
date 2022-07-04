@@ -4,9 +4,14 @@ const dateFormat = require("../utils/dateFormat");
 
 const projectSchema = new Schema(
   {
+    projectTitle: {
+      type: String,
+      required: "You need a title for your project!",
+      minlength: 1,
+    },
     projectText: {
       type: String,
-      required: "You need to leave a thought!",
+      required: "You need to leave instructions for your project!",
       minlength: 1,
     },
     createdAt: {

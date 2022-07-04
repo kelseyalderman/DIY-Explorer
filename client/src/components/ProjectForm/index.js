@@ -5,6 +5,7 @@ import { QUERY_PROJECTS, QUERY_ME } from "../../utils/queries";
 
 const ProjectForm = () => {
   const [projectText, setText] = useState("");
+  const [projectTitle, setTitle] = useState("");
   const [characterCount, setCharacterCount] = useState(0);
   const [addProject, { error }] = useMutation(ADD_PROJECT, {
     update(cache, { data: { addProject } }) {
@@ -33,10 +34,18 @@ const ProjectForm = () => {
     },
   });
 
-  const handleChange = (event) => {
+  const handleTitleChange = (event) => {
+    if(event.target.value.length <= 280) {
+      setTitle(event.target.value);
+      console.log(projectTitle);
+    }
+  };
+
+  const handleTextChange = (event) => {
     if (event.target.value.length <= 280) {
       setText(event.target.value);
       setCharacterCount(event.target.value.length);
+      console.log(projectText);
     }
   };
 
@@ -46,10 +55,11 @@ const ProjectForm = () => {
     try {
       // add project to database
       await addProject({
-        variables: { projectText },
+        variables: { projectTitle, projectText },
       });
 
       // clear form value
+      setTitle("");
       setText("");
       setCharacterCount(0);
     } catch (e) {
@@ -70,10 +80,16 @@ const ProjectForm = () => {
         onSubmit={handleFormSubmit}
       >
         <textarea
+          placeholder="Title..."
+          value={projectTitle}
+          className="form-input col-12 col-md-9"
+          onChange={handleTitleChange}
+        ></textarea>
+        <textarea
           placeholder="Here's a new project..."
           value={projectText}
           className="form-input col-12 col-md-9"
-          onChange={handleChange}
+          onChange={handleTextChange}
         ></textarea>
         <button className="btn col-12 col-md-3" type="submit">
           Submit
