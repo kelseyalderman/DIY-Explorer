@@ -34,7 +34,7 @@ const SingleProject = (props) => {
 
   return (
     <div>
-      {projectId && (
+      {Auth.loggedIn() && projectId && (
         <button className="btn ml-auto" onClick={handleClick}>
           Save Project
         </button>
