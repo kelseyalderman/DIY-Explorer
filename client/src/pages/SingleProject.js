@@ -46,7 +46,7 @@ const SingleProject = (props) => {
         </div>
       </div>
 
-      {project.commentCount > 0 && <CommentList coments={project.comments} />}
+      {project.commentCount > 0 && <CommentList comments={project.comments} />}
 
       {Auth.loggedIn() && <CommentForm projectId={project._id} />}
 
