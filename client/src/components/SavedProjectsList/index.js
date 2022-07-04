@@ -8,10 +8,16 @@ const SavedProjectsList = ({ savedProjects }) => {
 
   return (
     <div>
+      <h5>Saved projects:</h5>
       {savedProjects.map((savedProject) => (
-        <button className="btn w-100 display-block mb-2" key={savedProject._id}>
-          <Link to={`/project/${savedProject._id}`}>{savedProject.title}</Link>
-        </button>
+        <Link to={`/project/${savedProject._id}`}>
+          <button
+            className="btn w-100 display-block mb-2"
+            key={savedProject._id}
+          >
+            {savedProject.projectTitle}
+          </button>
+        </Link>
       ))}
     </div>
   );

@@ -13,14 +13,14 @@ const ProjectList = ({ projects, title }) => {
         projects.map((project) => (
           <div key={project._id} className="card mb-3">
             <p className="card-header">
+              {project.projectTitle} on {project.createdAt} by{" "}
               <Link
                 to={`/profile/${project.username}`}
                 style={{ fontWeight: 700 }}
                 className="text-light"
               >
                 {project.username}
-              </Link>{" "}
-              project on {project.createdAt}
+              </Link>
             </p>
             <div className="card-body">
               <Link to={`/project/${project._id}`}>
