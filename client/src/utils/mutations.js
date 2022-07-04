@@ -42,8 +42,8 @@ export const ADD_SAVED_PROJECT = gql`
 `;
 
 export const ADD_PROJECT = gql`
-  mutation addProject($projectText: String!) {
-    addProject(projectText: $projectText) {
+  mutation addProject($projectTitle: String!, $projectText: String!) {
+    addProject(projectTitle: $projectTitle, projectText: $projectText) {
       _id
       projectTitle
       projectText
