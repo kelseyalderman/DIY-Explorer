@@ -14,6 +14,7 @@ const typeDefs = gql`
 
   type Project {
     _id: ID
+    projectTitle: String
     projectText: String
     createdAt: String
     username: String

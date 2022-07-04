@@ -4,6 +4,7 @@ export const QUERY_PROJECTS = gql`
   query projects($username: String) {
     projects(username: $username) {
       _id
+      projectTitle
       projectText
       createdAt
       username
@@ -22,6 +23,7 @@ export const QUERY_PROJECT = gql`
   query project($id: ID!) {
     project(_id: $id) {
       _id
+      projectTitle
       projectText
       createdAt
       username
@@ -44,12 +46,14 @@ export const QUERY_USER = gql`
       email
       savedProjects {
         _id
+        projectTitle
         projectText
         createdAt
         username
       }
       projects {
         _id
+        projectTitle
         projectText
         createdAt
         commentCount
@@ -66,6 +70,7 @@ export const QUERY_ME = gql`
       email
       projects {
         _id
+        projectTitle
         projectText
         createdAt
         commentCount
@@ -78,6 +83,7 @@ export const QUERY_ME = gql`
       }
       savedProjects {
         _id
+        projectTitle
         projectText
         createdAt
         username
@@ -94,6 +100,7 @@ export const QUERY_ME_BASIC = gql`
       email
       savedProjects {
         _id
+        projectTitle
         projectText
         createdAt
         username
