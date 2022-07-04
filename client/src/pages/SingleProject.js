@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_PROJECT } from "../utils/queries";
 import { ADD_SAVED_PROJECT } from "../utils/mutations";
@@ -34,12 +34,24 @@ const SingleProject = (props) => {
 
   return (
     <div>
+      {projectId && (
+        <button className="btn ml-auto" onClick={handleClick}>
+          Save Project
+        </button>
+      )}
       <div className="card mb-3">
         <p className="card-header">
           <span style={{ fontWeight: 700 }} className="text-light">
-            {project.username}
+            {project.projectTitle}
           </span>{" "}
-          Project created on {project.createdAt}
+          created on {project.createdAt} by{" "}
+          <Link
+            to={`/profile/${project.username}`}
+            style={{ fontWeight: 700 }}
+            className="text-light"
+          >
+            {project.username}
+          </Link>
         </p>
         <div className="card-body">
           <p>{project.projectText}</p>
@@ -49,12 +61,6 @@ const SingleProject = (props) => {
       {project.commentCount > 0 && <CommentList comments={project.comments} />}
 
       {Auth.loggedIn() && <CommentForm projectId={project._id} />}
-
-      {projectId && (
-        <button className="btn ml-auto" onClick={handleClick}>
-          Add Project
-        </button>
-      )}
     </div>
   );
 };
