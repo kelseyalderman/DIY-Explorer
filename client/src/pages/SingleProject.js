@@ -41,15 +41,8 @@ const SingleProject = (props) => {
       )}
       <div className="card mb-3">
         <div className="card-header">
-          <h2 style={{ fontWeight: 700 }} className="text-light">
-            {project.projectTitle}
-          </h2>{" "}
-          Created by{" "}
-          <Link
-            to={`/profile/${project.username}`}
-            style={{ fontWeight: 700 }}
-            className="text-light"
-          >
+          <h2 style={{ fontWeight: 700 }}>{project.projectTitle}</h2> Created by{" "}
+          <Link to={`/profile/${project.username}`} style={{ fontWeight: 700 }}>
             {project.username}
           </Link>{" "}
           on {project.createdAt}

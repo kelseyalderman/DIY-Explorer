@@ -14,14 +14,14 @@ const UserProjectList = ({ projects, title }) => {
           <div key={project._id} className="card mb-3">
             <Link to={`/project/${project._id}`}>
               <div className="card-header">
-                <h2 style={{ fontWeight: 700 }} className="text-light">
+                <h2 style={{ fontWeight: 700 }} className="text-dark">
                   {project.projectTitle}
                 </h2>{" "}
                 Created on {project.createdAt}
               </div>
               <div className="card-body">
                 <p>{project.projectText}</p>
-                <p className="mb-0">
+                <p className="bg-secondary text-dark mb-0 p-2 display-inline-block">
                   Comments: {project.commentCount} || Click to{" "}
                   {project.commentCount ? "see" : "start"} the discussion!
                 </p>

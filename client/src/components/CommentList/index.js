@@ -5,7 +5,7 @@ const CommentList = ({ comments }) => {
   return (
     <div className="card mb-3">
       <div className="card-header">
-        <span className="text-light">Comments</span>
+        <span className="text-dark">Comments</span>
       </div>
       <div className="card-body">
         {comments &&

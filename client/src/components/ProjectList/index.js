@@ -11,17 +11,16 @@ const ProjectList = ({ projects, title }) => {
       <h2>{title}</h2>
       {projects &&
         projects.map((project) => (
-          <div key={project._id} className="card mb-3">
-            <div className="card-header">
+          <div key={project._id} className="card-home mb-3">
+            <div className="card-header-home">
               <Link to={`/project/${project._id}`}>
-                <h3 className="text-light">{project.projectTitle}</h3>
+                <h3 className="text-dark">{project.projectTitle}</h3>
               </Link>
               <div>
                 Created by{" "}
                 <Link
                   to={`/profile/${project.username}`}
                   style={{ fontWeight: 700 }}
-                  className="text-secondary"
                 >
                   {project.username}
                 </Link>{" "}
