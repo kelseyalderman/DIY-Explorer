@@ -129,6 +129,25 @@ nav a:hover {
   background-color: var(--secondary);
 }
 
+.btn-delete {
+  font-family: "Rockwell", sans-serif;
+  font-size: 0.8rem;
+  text-decoration: none;
+  padding: 0.5rem 0.5rem;
+  margin: 3px 0;
+  border: 3px solid var(--error);
+  border-radius: var(--border-radius);
+  color: var(--error);
+  outline: none;
+  background-color: var(--light);
+  transition: all 0.5s;
+}
+
+.btn-delete:hover {
+  color: var(--light);
+  background-color: var(--error);
+}
+
 .btn-inline {
   display: inline;
 }

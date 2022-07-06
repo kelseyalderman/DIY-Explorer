@@ -74,6 +74,23 @@ export const ADD_PROJECT = gql`
   }
 `;
 
+export const REMOVE_PROJECT = gql`
+  mutation removeProject($id: ID!) {
+    removeProject(projectId: $id) {
+      _id
+      projectTitle
+      projectText
+      createdAt
+      username
+      commentCount
+      comments {
+        _id
+        username
+      }
+    }
+  }
+`;
+
 export const ADD_COMMENT = gql`
   mutation addComment($projectId: ID!, $commentBody: String!) {
     addComment(projectId: $projectId, commentBody: $commentBody) {

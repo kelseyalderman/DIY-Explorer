@@ -81,6 +81,19 @@ const resolvers = {
 
       throw new AuthenticationError("You need to be logged in!");
     },
+    removeProject: async (parent, { projectId }, context) => {
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { projects: projectId } },
+          { new: true }
+        ).populate("projects");
+
+        return updatedUser;
+      }
+
+      throw new AuthenticationError("You need to be logged in!");
+    },
     addComment: async (parent, { projectId, commentBody }, context) => {
       if (context.user) {
         const updatedProject = await Project.findOneAndUpdate(
