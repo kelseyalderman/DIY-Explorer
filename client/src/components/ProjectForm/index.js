@@ -89,7 +89,7 @@ const ProjectForm = () => {
         ></textarea>
         <br />
         <button className="btn col-12 col-md-9" type="submit">
-          Save Project
+          Create Project
         </button>
       </form>
     </div>

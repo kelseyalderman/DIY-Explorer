@@ -43,6 +43,7 @@ const typeDefs = gql`
     addProject(projectTitle: String!, projectText: String!): Project
     addComment(projectId: ID!, commentBody: String!): Project
     addSavedProject(savedProjectId: ID!): Project
+    removeSavedProject(savedProjectId: ID!): Project
   }
 
   type Auth {
