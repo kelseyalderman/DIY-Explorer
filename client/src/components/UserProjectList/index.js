@@ -8,15 +8,15 @@ const UserProjectList = ({ projects, title }) => {
 
   return (
     <div>
-      <h3>{title}</h3>
+      <h3>{title}</h3>  
       {projects &&
         projects.map((project) => (
           <div key={project._id} className="card mb-3">
             <Link to={`/project/${project._id}`}>
               <div className="card-header">
-                <h2 style={{ fontWeight: 700 }} className="text-dark">
+                <h3 style={{ fontWeight: 700 }} className="text-dark">
                   {project.projectTitle}
-                </h2>{" "}
+                </h3>{" "}
                 Created on {project.createdAt}
               </div>
               <div className="card-body">

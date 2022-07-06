@@ -1,6 +1,6 @@
 :root {
   --primary: #81be86;
-  --secondary:#81be86;
+  --secondary: #81be86;
   --tertiary: #f0fcfb;
   --quatrinary: #646464;
   --light: #ffffff;
@@ -110,23 +110,23 @@ nav a:hover {
 
 .btn,
 .pill {
-  font-family: "Rockwell" , sans-serif;
+  font-family: "Rockwell", sans-serif;
   font-size: 1.3rem;
   text-decoration: none;
   padding: 0.5rem 1.2rem;
   margin: 5px 0;
   border-radius: var(--border-radius);
   border: none;
-  color: var(--dark);
+  color: var(--secondary);
   outline: none;
-  background-color: var(--secondary);
+  background-color: var(--dark);
   transition: all 0.5s;
 }
 
 .btn:hover,
 .pill:hover {
-  color: var(--secondary);
-  background-color: var(--dark);
+  color: var(--dark);
+  background-color: var(--secondary);
 }
 
 .btn-inline {
