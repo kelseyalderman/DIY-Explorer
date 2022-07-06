@@ -40,19 +40,20 @@ const SingleProject = (props) => {
         </button>
       )}
       <div className="card mb-3">
-        <p className="card-header">
-          <span style={{ fontWeight: 700 }} className="text-light">
+        <div className="card-header">
+          <h2 style={{ fontWeight: 700 }} className="text-light">
             {project.projectTitle}
-          </span>{" "}
-          created on {project.createdAt} by{" "}
+          </h2>{" "}
+          Posted by{" "}
           <Link
             to={`/profile/${project.username}`}
             style={{ fontWeight: 700 }}
             className="text-light"
           >
             {project.username}
-          </Link>
-        </p>
+          </Link>{" "}
+          on {project.createdAt}
+        </div>
         <div className="card-body">
           <p>{project.projectText}</p>
         </div>
