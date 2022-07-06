@@ -12,7 +12,9 @@ const Home = () => {
   const projects = data?.projects || [];
 
   // use object destructuring to extract `data` from the `useQuery` Hook's response and rename it `userData` to be more descriptive
-  const { data: userData } = useQuery(QUERY_ME_BASIC, {fetchPolicy: 'cache-and-network'});
+  const { data: userData } = useQuery(QUERY_ME_BASIC, {
+    fetchPolicy: "cache-and-network",
+  });
 
   const loggedIn = Auth.loggedIn();
 
@@ -28,7 +30,7 @@ const Home = () => {
           {loading ? (
             <div>Loading...</div>
           ) : (
-            <ProjectList projects={projects} title="Find a DIY Project" />
+            <ProjectList projects={projects} title="Exlpore DIY Projects" />
           )}
         </div>
         {loggedIn && userData ? (

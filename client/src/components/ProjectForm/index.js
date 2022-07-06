@@ -67,28 +67,29 @@ const ProjectForm = () => {
 
   return (
     <div>
-      <p className={`m-0 ${error ? "text-error" : ""}`}>
-        Share a new project!
+      <h2 className={`m-0 ${error ? "text-error" : ""}`}>
+        Create a New Project
         {error && <span className="ml-2">Something went wrong...</span>}
-      </p>
+      </h2>
       <form
         className="flex-row justify-center justify-space-between-md align-stretch"
         onSubmit={handleFormSubmit}
       >
-        <textarea
-          placeholder="Title..."
+        <input
+          placeholder="Title"
           value={projectTitle}
           className="form-input col-12 col-md-9"
           onChange={handleTitleChange}
-        ></textarea>
+        ></input>
         <textarea
-          placeholder="Here's a new project..."
+          placeholder="Instructions"
           value={projectText}
           className="form-input col-12 col-md-9"
           onChange={handleTextChange}
         ></textarea>
-        <button className="btn col-12 col-md-3" type="submit">
-          Submit
+        <br />
+        <button className="btn col-12 col-md-9" type="submit">
+          Save Project
         </button>
       </form>
     </div>
