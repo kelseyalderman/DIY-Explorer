@@ -44,7 +44,7 @@ const SingleProject = (props) => {
           <h2 style={{ fontWeight: 700 }} className="text-light">
             {project.projectTitle}
           </h2>{" "}
-          Posted by{" "}
+          Created by{" "}
           <Link
             to={`/profile/${project.username}`}
             style={{ fontWeight: 700 }}
