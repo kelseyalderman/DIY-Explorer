@@ -69,7 +69,7 @@ const ProjectForm = () => {
     <div>
       <h2 className={`m-0 ${error ? "text-error" : ""}`}>
         Create a New Project
-        {error && <span className="ml-2">Something went wrong...</span>}
+        {error && <span className="ml-2">...Something went wrong...</span>}
       </h2>
       <form
         className="flex-row justify-center justify-space-between-md align-stretch"

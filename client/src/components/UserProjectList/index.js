@@ -8,7 +8,7 @@ const UserProjectList = ({ projects, title }) => {
 
   return (
     <div>
-      <h3>{title}</h3>  
+      <h3>{title}</h3>
       {projects &&
         projects.map((project) => (
           <div key={project._id} className="card mb-3">
@@ -21,9 +21,9 @@ const UserProjectList = ({ projects, title }) => {
               </div>
               <div className="card-body">
                 <p>{project.projectText}</p>
-                <p className="bg-secondary text-dark mb-0 p-2 display-inline-block">
+                <p className="text-primary mb-0 display-inline-block">
                   Comments: {project.commentCount} || Click to{" "}
-                  {project.commentCount ? "see" : "start"} the discussion!
+                  {project.commentCount ? "see" : "start"} the discussion
                 </p>
               </div>
             </Link>

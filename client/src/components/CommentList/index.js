@@ -10,7 +10,7 @@ const CommentList = ({ comments }) => {
       <div className="card-body">
         {comments &&
           comments.map((comment) => (
-            <p className="pill mb-3" key={comment._id}>
+            <p className="pill mb-3 text-primary" key={comment._id}>
               {comment.commentBody} {"// "}
               <Link
                 to={`/profile/${comment.username}`}
