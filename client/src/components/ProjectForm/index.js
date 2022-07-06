@@ -6,7 +6,7 @@ import { QUERY_PROJECTS, QUERY_ME } from "../../utils/queries";
 const ProjectForm = () => {
   const [projectText, setText] = useState("");
   const [projectTitle, setTitle] = useState("");
-  const [characterCount, setCharacterCount] = useState(0);
+  const [setCharacterCount] = useState(0);
   const [addProject, { error }] = useMutation(ADD_PROJECT, {
     update(cache, { data: { addProject } }) {
       try {
@@ -35,7 +35,7 @@ const ProjectForm = () => {
   });
 
   const handleTitleChange = (event) => {
-    if(event.target.value.length <= 280) {
+    if (event.target.value.length <= 280) {
       setTitle(event.target.value);
     }
   };
@@ -67,10 +67,8 @@ const ProjectForm = () => {
 
   return (
     <div>
-      <p
-        className={`m-0 ${characterCount === 280 || error ? "text-error" : ""}`}
-      >
-        Character Count: {characterCount}/280
+      <p className={`m-0 ${error ? "text-error" : ""}`}>
+        Share a new project!
         {error && <span className="ml-2">Something went wrong...</span>}
       </p>
       <form
