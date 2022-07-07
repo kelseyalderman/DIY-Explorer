@@ -41,6 +41,23 @@ export const ADD_SAVED_PROJECT = gql`
   }
 `;
 
+export const REMOVE_SAVED_PROJECT = gql`
+  mutation removeSavedProject($id: ID!) {
+    removeSavedProject(savedProjectId: $id) {
+      _id
+      username
+      projectTitle
+      projectText
+      createdAt
+      commentCount
+      comments {
+        _id
+        username
+      }
+    }
+  }
+`;
+
 export const ADD_PROJECT = gql`
   mutation addProject($projectTitle: String!, $projectText: String!) {
     addProject(projectTitle: $projectTitle, projectText: $projectText) {
@@ -52,6 +69,23 @@ export const ADD_PROJECT = gql`
       commentCount
       comments {
         _id
+      }
+    }
+  }
+`;
+
+export const REMOVE_PROJECT = gql`
+  mutation removeProject($id: ID!) {
+    removeProject(projectId: $id) {
+      _id
+      projectTitle
+      projectText
+      createdAt
+      username
+      commentCount
+      comments {
+        _id
+        username
       }
     }
   }

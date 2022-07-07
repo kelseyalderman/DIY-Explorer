@@ -5,12 +5,12 @@ const CommentList = ({ comments }) => {
   return (
     <div className="card mb-3">
       <div className="card-header">
-        <span className="text-light">Comments</span>
+        <span className="text-dark">Comments</span>
       </div>
       <div className="card-body">
         {comments &&
           comments.map((comment) => (
-            <p className="pill mb-3" key={comment._id}>
+            <p className="pill mb-3 text-primary" key={comment._id}>
               {comment.commentBody} {"// "}
               <Link
                 to={`/profile/${comment.username}`}

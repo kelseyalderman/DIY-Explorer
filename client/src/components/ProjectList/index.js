@@ -8,27 +8,26 @@ const ProjectList = ({ projects, title }) => {
 
   return (
     <div>
-      <h3>{title}</h3>
+      <h2>{title}</h2>
       {projects &&
         projects.map((project) => (
-          <div key={project._id} className="card mb-3">
-            <p className="card-header">
-              {project.projectTitle} on {project.createdAt} by{" "}
-              <Link
-                to={`/profile/${project.username}`}
-                style={{ fontWeight: 700 }}
-                className="text-light"
-              >
-                {project.username}
-              </Link>
-            </p>
-            <div className="card-body">
+          <div key={project._id} className="card-home mb-3">
+            <div className="card-header-home">
               <Link to={`/project/${project._id}`}>
-                <p>{project.projectText}</p>
-                <p className="mb-0">
-                  Comments: {project.commentCount} || Click to{" "}
-                  {project.commentCount ? "see" : "start"} the discussion!
-                </p>
+                <h3 className="text-dark">{project.projectTitle}</h3>
+              </Link>
+              <div>
+                Created by{" "}
+                <Link
+                  to={`/profile/${project.username}`}
+                  style={{ fontWeight: 700 }}
+                >
+                  {project.username}
+                </Link>{" "}
+                on {project.createdAt}
+              </div>
+              <Link to={`/project/${project._id}`}>
+                <p className="text-light">Comments: {project.commentCount}</p>
               </Link>
             </div>
           </div>

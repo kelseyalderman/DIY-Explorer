@@ -1,10 +1,10 @@
 :root {
-  --primary: #497573;
-  --secondary: #99f7f2;
-  --tertiary: #b2c2c1;
-  --quatrinary: #cadbda;
-  --light: #e1f5f4;
-  --dark: #6c7575;
+  --primary: #81be86;
+  --secondary: #81be86;
+  --tertiary: #f0fcfb;
+  --quatrinary: #646464;
+  --light: #ffffff;
+  --dark: #272f32;
   --error: rgb(228, 46, 1);
   --border-radius: 0.3rem;
   --spacing-one: calc(1rem * 0.25);
@@ -27,11 +27,12 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Inconsolata", monospace;
+  font-family: "Rockwell", sans-serif;
   font-weight: 400;
   line-height: 1.5;
   font-size: 20px;
   color: var(--dark);
-  background-color: #f3fffee1;
+  background-color: #e6e6e6e1;
 }
 
 h1,
@@ -40,7 +41,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Karla", sans-serif;
+  font-family: "Rockwell", sans-serif;
   font-weight: 700;
   margin: 5px 0;
   line-height: 1.25;
@@ -109,22 +110,42 @@ nav a:hover {
 
 .btn,
 .pill {
+  font-family: "Rockwell", sans-serif;
   font-size: 1.3rem;
   text-decoration: none;
   padding: 0.5rem 1.2rem;
   margin: 5px 0;
   border-radius: var(--border-radius);
   border: none;
-  color: var(--dark);
+  color: var(--secondary);
   outline: none;
-  background-color: var(--secondary);
+  background-color: var(--dark);
   transition: all 0.5s;
 }
 
 .btn:hover,
 .pill:hover {
-  color: var(--secondary);
-  background-color: var(--dark);
+  color: var(--dark);
+  background-color: var(--secondary);
+}
+
+.btn-delete {
+  font-family: "Rockwell", sans-serif;
+  font-size: 0.8rem;
+  text-decoration: none;
+  padding: 0.5rem 0.5rem;
+  margin: 3px 0;
+  border: 3px solid var(--error);
+  border-radius: var(--border-radius);
+  color: var(--error);
+  outline: none;
+  background-color: var(--light);
+  transition: all 0.5s;
+}
+
+.btn-delete:hover {
+  color: var(--light);
+  background-color: var(--error);
 }
 
 .btn-inline {
@@ -134,6 +155,14 @@ nav a:hover {
 /* CARDS */
 .card {
   margin: 0 0 20px 0;
+  border: 3px solid var(--primary);
+  border-radius: var(--border-radius);
+  background-color: var(--light);
+  color: var(--dark);
+}
+
+.card-home {
+  margin: 0 0 20px 0;
   border: 3px solid var(--dark);
   border-radius: var(--border-radius);
   background-color: var(--light);
@@ -141,9 +170,17 @@ nav a:hover {
 }
 
 .card-header {
-  color: var(--secondary);
+  color: var(--dark);
   margin: 0;
-  background-color: var(--dark);
+  background-color: var(--primary);
+  padding: 0.625rem;
+  border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
+}
+
+.card-header-home {
+  color: var(--dark);
+  margin: 0;
+  background-color: var(--primary);
   padding: 0.625rem;
   border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
 }
@@ -158,6 +195,7 @@ nav a:hover {
 .form-input,
 .form-textarea {
   display: block;
+  font-family: "Rockwell", sans-serif;
 }
 
 .form-label {
@@ -172,6 +210,7 @@ nav a:hover {
   font-size: 1.2rem;
   border: 2px solid var(--dark);
   border-radius: var(--border-radius);
+  background-color: #ffff;
 }
 
 [type="radio"]:checked,
@@ -752,7 +791,7 @@ nav a:hover {
 }
 
 .text-secondary {
-  color: var(--secondary);
+  color: black;
 }
 
 .text-tertiary {
@@ -793,7 +832,7 @@ nav a:hover {
 }
 
 .bg-dark {
-  background-color: var(--dark);
+  background-color: #81be86;
 }
 
 /* FLEX CONTENT */

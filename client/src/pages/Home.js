@@ -10,10 +10,11 @@ const Home = () => {
   // use useQuery hook to make query request
   const { loading, data } = useQuery(QUERY_PROJECTS);
   const projects = data?.projects || [];
-  console.log(projects);
 
   // use object destructuring to extract `data` from the `useQuery` Hook's response and rename it `userData` to be more descriptive
-  const { data: userData } = useQuery(QUERY_ME_BASIC);
+  const { data: userData } = useQuery(QUERY_ME_BASIC, {
+    fetchPolicy: "cache-and-network",
+  });
 
   const loggedIn = Auth.loggedIn();
 
@@ -29,7 +30,7 @@ const Home = () => {
           {loading ? (
             <div>Loading...</div>
           ) : (
-            <ProjectList projects={projects} title="Find a DIY Project" />
+            <ProjectList projects={projects} title="Exlpore DIY Projects" />
           )}
         </div>
         {loggedIn && userData ? (

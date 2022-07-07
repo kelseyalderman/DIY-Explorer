@@ -6,7 +6,7 @@ import { QUERY_PROJECTS, QUERY_ME } from "../../utils/queries";
 const ProjectForm = () => {
   const [projectText, setText] = useState("");
   const [projectTitle, setTitle] = useState("");
-  const [characterCount, setCharacterCount] = useState(0);
+  const [setCharacterCount] = useState(0);
   const [addProject, { error }] = useMutation(ADD_PROJECT, {
     update(cache, { data: { addProject } }) {
       try {
@@ -35,9 +35,8 @@ const ProjectForm = () => {
   });
 
   const handleTitleChange = (event) => {
-    if(event.target.value.length <= 280) {
+    if (event.target.value.length <= 280) {
       setTitle(event.target.value);
-      console.log(projectTitle);
     }
   };
 
@@ -45,7 +44,6 @@ const ProjectForm = () => {
     if (event.target.value.length <= 280) {
       setText(event.target.value);
       setCharacterCount(event.target.value.length);
-      console.log(projectText);
     }
   };
 
@@ -69,30 +67,29 @@ const ProjectForm = () => {
 
   return (
     <div>
-      <p
-        className={`m-0 ${characterCount === 280 || error ? "text-error" : ""}`}
-      >
-        Character Count: {characterCount}/280
-        {error && <span className="ml-2">Something went wrong...</span>}
-      </p>
+      <h2 className={`m-0 ${error ? "text-error" : ""}`}>
+        Create a New Project
+        {error && <span className="ml-2">...Something went wrong...</span>}
+      </h2>
       <form
         className="flex-row justify-center justify-space-between-md align-stretch"
         onSubmit={handleFormSubmit}
       >
-        <textarea
-          placeholder="Title..."
+        <input
+          placeholder="Title"
           value={projectTitle}
           className="form-input col-12 col-md-9"
           onChange={handleTitleChange}
-        ></textarea>
+        ></input>
         <textarea
-          placeholder="Here's a new project..."
+          placeholder="Instructions"
           value={projectText}
           className="form-input col-12 col-md-9"
           onChange={handleTextChange}
         ></textarea>
-        <button className="btn col-12 col-md-3" type="submit">
-          Submit
+        <br />
+        <button className="btn col-12 col-md-9" type="submit">
+          Create Project
         </button>
       </form>
     </div>

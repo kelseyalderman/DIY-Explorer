@@ -1,6 +1,6 @@
 import React from "react";
 import { Navigate, useParams } from "react-router-dom";
-import ProjectList from "../components/ProjectList";
+import UserProjectList from "../components/UserProjectList";
 import SavedProjectsList from "../components/SavedProjectsList";
 import { useQuery } from "@apollo/client";
 import { QUERY_USER, QUERY_ME } from "../utils/queries";
@@ -12,6 +12,7 @@ const Profile = () => {
 
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { username: userParam },
+    fetchPolicy: "cache-and-network",
   });
 
   const user = data?.me || data?.user || {};
@@ -38,13 +39,13 @@ const Profile = () => {
     <div>
       <div className="flex-row mb-3">
         <h2 className="bg-dark text-secondary p-3 display-inline-block">
-          Viewing {userParam ? `${user.username}'s` : "your"} profile.
+          {userParam ? `${user.username}'s` : "Your"} Profile
         </h2>
       </div>
 
       <div className="flex-row justify-space-between mb-3">
         <div className="col-12 mb-3 col-lg-8">
-          <ProjectList
+          <UserProjectList
             projects={user.projects}
             title={`${user.username}'s projects:`}
           />
