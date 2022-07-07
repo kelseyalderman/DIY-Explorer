@@ -4,13 +4,11 @@ import { ADD_COMMENT } from '../../utils/mutations';
 
 const CommentForm = ({ projectId }) => {
   const [commentBody, setBody] = useState('');
-  const [characterCount, setCharacterCount] = useState(0);
   const [addComment, { error }] = useMutation(ADD_COMMENT);
 
   const handleChange = event => {
-    if(event.target.value.length <= 280) {
+    if(event.target.value.length >= 1) {
       setBody(event.target.value);
-      setCharacterCount(event.target.value.length);
     }
   };
 
@@ -23,7 +21,6 @@ const CommentForm = ({ projectId }) => {
 
       
       setBody('');
-      setCharacterCount(0);
     } catch (e) {
       console.error(e);
     }
@@ -31,8 +28,7 @@ const CommentForm = ({ projectId }) => {
 
   return (
     <div>
-      <p className={`m-0 ${characterCount === 280 || error ? 'text-error' : ''}`}>
-        Character Count: {characterCount}/280
+      <p className={`m-0 || error ? 'text-error' : ''}`}>
         {error && <span className="ml-2">Something went wrong...</span>}
       </p>
       <form className="flex-row justify-center justify-space-between-md align-stretch" onSubmit={handleFormSubmit}>

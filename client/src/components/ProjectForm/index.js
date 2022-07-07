@@ -6,7 +6,6 @@ import { QUERY_PROJECTS, QUERY_ME } from "../../utils/queries";
 const ProjectForm = () => {
   const [projectText, setText] = useState("");
   const [projectTitle, setTitle] = useState("");
-  const [setCharacterCount] = useState(0);
   const [addProject, { error }] = useMutation(ADD_PROJECT, {
     update(cache, { data: { addProject } }) {
       try {
@@ -35,15 +34,14 @@ const ProjectForm = () => {
   });
 
   const handleTitleChange = (event) => {
-    if (event.target.value.length <= 280) {
+    if (event.target.value.length >= 1) {
       setTitle(event.target.value);
     }
   };
 
   const handleTextChange = (event) => {
-    if (event.target.value.length <= 280) {
+    if (event.target.value.length >= 1) {
       setText(event.target.value);
-      setCharacterCount(event.target.value.length);
     }
   };
 
@@ -59,7 +57,6 @@ const ProjectForm = () => {
       // clear form value
       setTitle("");
       setText("");
-      setCharacterCount(0);
     } catch (e) {
       console.error(e);
     }
