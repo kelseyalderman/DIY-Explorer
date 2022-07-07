@@ -8,6 +8,7 @@ A blog site that allows users to share their DIY crafts.
 * JSX
 * CSS
 * Express.js
+* GraphQL
 * Mongoose
 * MongoDB
 * Node.js
@@ -16,4 +17,5 @@ A blog site that allows users to share their DIY crafts.
 https://rocky-bayou-01919.herokuapp.com/
 
 ## Preview
-(screenshot here)
+![preview of homepage](assets/images/homepage.jpg)
+![preview of single project page](assets/images/singlepage.jpg)
