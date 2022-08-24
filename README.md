@@ -1,5 +1,15 @@
 # DIY Explorer
 
+## Table of Contents
+
+- [Description](#description)
+- [User Story](#user-story)
+- [Features](#features)
+- [Technologies](#technologies)
+- [Website](#website)
+- [Installation](#installation)
+- [Contributors](#contributors)
+
 ## Description
 
 A full-stack application that allows users to share "do it yourself" crafts, explore other users' content, save DIY ideas for easy reference, and provide and receive feedback on projects.
