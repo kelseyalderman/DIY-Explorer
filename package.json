@@ -1,5 +1,5 @@
 {
-  "name": "diy-sharing",
+  "name": "diy-explorer",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kaiafay/DIY-sharing.git"
+    "url": "git+https://github.com/kelseyalderman/DIY-Explorer.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/kaiafay/DIY-sharing/issues"
+    "url": "https://github.com/kelseyalderman/DIY-Explorer/issues"
   },
-  "homepage": "https://github.com/kaiafay/DIY-sharing#readme",
+  "homepage": "https://github.com/kelseyalderman/DIY-Explorer#readme",
   "devDependencies": {
     "concurrently": "^7.2.2"
   }
