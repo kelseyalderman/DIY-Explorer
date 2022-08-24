@@ -57,6 +57,6 @@ This program can be run through a browser using the above link to the deployed a
 
 - Kelsey Alderman: [Github](https://github.com/kelseyalderman)
 
-- Kaia Scheirman: [Github](https://github.com/kaiafey)
+- Kaia Scheirman: [Github](https://github.com/kaiafay)
 
 - Jacob Leonetti: [Github](https://github.com/YacobLeonetti)
