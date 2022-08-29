@@ -16,7 +16,7 @@ A full-stack application that allows users to share "do it yourself" crafts, exp
 
 ## User Story
 
-As I user interested in "do it yourself" (DIY) projects, I would like an application that allows me to save my projects, explore ideas, and interact with projects created by other users. When on the homepage, I am presented with a list of DIY projects posted by other users to explore. When I am logged in, I have the option to comment on projects or save them to my profile. When on my profile page, I see a list of saved projects that link me directly to the post, a list of projects I have posted, and a form to create a new project.
+As a user interested in "do it yourself" (DIY) projects, I would like an application that allows me to save my projects, explore ideas, and interact with projects created by other users. When on the homepage, I am presented with a list of DIY projects posted by other users to explore. When I am logged in, I have the option to comment on projects or save them to my profile. When on my profile page, I see a list of saved projects that link me directly to the post, a list of projects I have posted, and a form to create a new project.
 
 ## Features
 
